@@ -1,0 +1,12 @@
+* {
+    max-width: 500px;
+    align-items: center;
+}
+
+img {
+    height: 250px;
+}
+
+h1 {
+    color:rgb(20, 173, 114);
+}

@@ -1,0 +1,109 @@
+body {
+    max-width: 500px;
+    line-height: 1.5;
+}
+.fonts li::marker {
+    content: none;
+}
+h1 {
+    font-size: 50px;
+    font-weight: 700; 
+    font-family:Georgia;
+    align-self: center;
+}
+h2 {
+    font-size: 40px;
+    font-weight: 500;
+    font-family: Cambria;
+    text-align: center;
+}
+p {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: arial;
+}
+nav li {
+    color: blue;
+    display: inline;
+    margin: 0 5px;
+    font-size: x-large;
+    background-color: gold;
+    border-radius: 10px;
+    padding: 0 5px ;
+}
+nav li:hover {
+    color: gold;
+    background-color: blue;
+    margin-top: 2px;
+    margin-bottom: -2px;
+    cursor: pointer;
+}
+.panel {
+    max-width: 32%;
+}
+.colors {
+    border: 5px solid red;
+    margin: 90px 0;
+}
+.backgroundcolor {
+    border: 2px dotted chocolate;
+}
+.warmbrown {
+    background-color: chocolate;
+}
+.warmgreen {
+    background-color: darkolivegreen;
+}
+.darkred {
+    background-color: darkred;
+}
+.highlightcolors {
+    border: 2px dotted red;
+}
+.red {
+    background-color:red;
+}
+.gold {
+    background-color: gold;
+}
+.cyan {
+    background-color: cyan;
+}
+.fonts {
+    border: 5px solid gold;
+    margin: 90px 0;
+}
+#font1 {
+    font-family: Georgia;
+    border: 2px dotted gold;
+    margin: 0 0;
+}
+#font2 {
+    font-family: Cambria;
+    border: 2px dotted gold;
+    margin: 0 0;
+}
+#font3 {
+    font-family: arial;
+    border: 2px dotted gold;
+    margin: 0 0;
+}
+.textstyle {
+    border: 5px solid cyan;
+    margin: 90px 0;
+}
+#styleheader {
+    font-size: 50px;
+    font-weight: 700;
+    font-family: georgia;
+}
+#stylesubheading {
+    font-size: 40px;
+    font-weight: 500;
+    font-family: Cambria;
+}
+#styleparagraph {
+    font-size: 16px;
+    font-weight: 400;
+    font-family: arial;
+}

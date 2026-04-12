@@ -1,0 +1,84 @@
+/* logo orange rgb 248, 147 29....hex #f8931d */
+
+            /*#####...HEADER...#####*/
+html {
+    font-size: 16px;
+    //line-height: 1.2;
+    font-family: Cambria;
+    background-color:antiquewhite;
+}
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.header {
+    height: auto;
+    border-bottom: 5px solid rgb(248, 147, 29);
+    justify-content: space-between; 
+}
+header {
+flex-basis: 5;
+font-size: 5rem;
+}
+.tr  {
+    flex-direction: column;
+    align-items: start;
+    padding-right: 2rem;
+}   
+.links ul {
+    padding: 0rem;
+}
+li { 
+    list-style-type: none;
+}
+        /*#######...MAIN...#######*/
+.main {
+    flex-direction: column;
+}
+.main p {
+    font-size: 1.25rem;
+}
+.card {
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: 300px;
+    background-color: lightblue;
+    border-radius: .865rem;
+    margin: 2rem;
+    }
+    .card img { 
+       border: .25rem solid black;
+       border-radius: .865rem;       
+    }
+    /*#######.....ABOUT SECTION...#######*/
+    .about {
+        text-align: center;
+        font-size: xx-large;
+        padding: 5rem;
+        border-top: .5rem solid black;
+        border-bottom: .5rem solid black;
+        background-color: rgb(248, 147, 29);
+    }
+    .team {
+        flex-basis: 300px;
+        flex-direction: column;
+        background-color: white;
+        justify-content: space-around;
+        margin: 1.5rem;
+        border: 1rem solid lightskyblue;
+        border-radius: 1rem;
+    }
+    .team:nth-child(2){
+        background-color:  rgb(248, 147, 29);
+    }
+    footer {
+        background-color: rgb(196, 45, 52);
+        text-align: center;
+    }
+@media screen and (max-width: 730px) {
+    .logo {
+       display: none;
+    }    
+}

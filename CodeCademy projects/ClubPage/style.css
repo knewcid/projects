@@ -1,0 +1,29 @@
+/*                  UNIVERSAL RULES             */
+
+html {
+    font-size: 16px;
+    font-family: Cambria;
+    line-height: 1.5;
+    margin: 0;
+    background-color: #51c9cc;
+}
+
+/*                  HEADER                  */
+
+header {
+    text-align: center;
+    font-size: 5rem;
+}
+
+li {
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 2rem;
+}
+.banner {
+    background-image: url(./resources/logo.jpg);
+    height: 100px;
+}
+h1 {
+    text-align: center;
+}
