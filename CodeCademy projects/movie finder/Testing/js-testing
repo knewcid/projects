@@ -1,0 +1,223 @@
+/* /* 
+//factorials.... target even/odd ..... credit card checker
+const valid1 = [4, 5, 3, 9, 6, 7, 7, 9, 0, 8, 0, 1, 6, 8, 0, 8];
+const valid2 = [5, 5, 3, 5, 7, 6, 6, 7, 6, 8, 7, 5, 1, 4, 3, 9];
+const valid3 = [3, 7, 1, 6, 1, 2, 0, 1, 9, 9, 8, 5, 2, 3, 6];
+const valid4 = [6, 0, 1, 1, 1, 4, 4, 3, 4, 0, 6, 8, 2, 9, 0, 5];
+const valid5 = [4, 5, 3, 9, 4, 0, 4, 9, 6, 7, 8, 6, 9, 6, 6, 6];
+
+const invalid1 = [4, 5, 3, 2, 7, 7, 8, 7, 7, 1, 0, 9, 1, 7, 9, 5];
+const invalid2 = [5, 7, 9, 5, 5, 9, 3, 3, 9, 2, 1, 3, 4, 6, 4, 3];
+const invalid3 = [3, 7, 5, 7, 9, 6, 0, 8, 4, 4, 5, 9, 9, 1, 4];
+const invalid4 = [6, 0, 1, 1, 1, 2, 7, 9, 6, 1, 7, 7, 7, 9, 3, 5];
+const invalid5 = [5, 3, 8, 2, 0, 1, 9, 7, 7, 2, 8, 8, 3, 8, 5, 4];
+
+
+const factorials = function (n) {
+    let result = n;
+    if(n===1){
+        return 1;
+    } else {
+        while (n > 1) {
+            result = result * (n - 1);
+            n--;
+        }
+    }
+    return result;    
+}
+    console.log(factorials(6))
+
+
+//saved backup from cred checker
+
+
+const badCompanies=[];
+const badOnes=[]
+const validateCred =array=>{ 
+  copy=array.slice()
+    copy.reverse(); 
+    for(let i=0;i < copy.length;i++){      
+      if(i%2 > 0){
+        copy[i] *= 2;
+         if(copy[i] > 9){
+         copy[i] -=9
+         };         
+        };        
+      };      
+    if(copy.reduce((a,c)=>a+c,0) % 10 === 0) {
+      //return console.log(`${array}  is Valid`)
+    } else {      
+      return badOnes.push(array)
+    }    
+};
+const findInvalidCards =array=>{
+  for(let i=0;i < array.length;i++){
+    validateCred(array[i]);
+  }  
+};
+findInvalidCards(batch)           // running the cards through the program
+console.log(badOnes)
+
+const idInvalidCardCompanies=function(firstDigit){  
+  switch(firstDigit[0]){
+    case 3:
+    if(badcompanies.some('Amex (American Express)')){badCompanies.push('Amex (American Express)')};
+    case 4:
+    if(badcompanies.some('Visa')){badCompanies.push('Visa')};
+    case 5:
+    if(badcompanies.some('Mastercard')){badCompanies.push('Mastercard')};
+    case 6:
+    if(badcompanies.some('Discover')){badCompanies.push('Discover')};
+    default:
+    console.log(`Company not found: `)
+  }
+};
+
+idInvalidCardCompanies(badOnes);
+console.log(badCompanies)
+ */
+/* 
+const books = [
+  {
+    title: "The City We Became",
+    author: "N. K. Jemisin",
+    tags: ["fantasy", "fiction", "afrofutursim", "science fiction", "sci-fi"]
+  },
+  {
+    title: "The Catcher in the Rye",
+    author: "J. D. Salinger",
+    tags: ["fiction", "young adult", "YA", "realism", "coming of age", "classic"]
+  },
+  {
+    title: "The Hundred Thousand Kingdoms",
+    author: "N. K. Jemisin",
+    tags: ["fantasy", "fiction", "adventure", "series"]
+  },
+  {
+    title: "Sapiens: A Brief History of Humankind",
+    author: "Yuval Noah Harari",
+    tags: ["nonfiction", "history", "anthropology", "science", "sociology"]
+  },
+  {
+    title: "Behave: The Biology of Humans at Our Best and Worst",
+    author: "Robert M. Sapolsky",
+    tags: ["nonfiction", "anthropology", "science", "sociology", "biology"]
+  },
+  {
+    title: "The Parable of the Talents",
+    author: "Octavia Butler", 
+    tags: ["fiction", "dystopian", "science fiction"]
+  },
+  {
+    title: "1984",
+    author: "George Orwell", 
+    tags: ["fiction", "dystopian", "science fiction", "classics", "adult"]
+  },
+  {
+    title: "Remarkably Bright Creatures",
+    author: "Shelby Van Pelt",
+    tags: ["fiction", "mystery", "magical realism"]
+  },
+  {
+    title: "Crying in H Mart",
+    author: "Michelle Zauner",
+    tags: ["memoir", "nonfiction", "autobiography"]
+  },
+  {
+    title: "Wild: From Lost to Found on the Pacific Crest Trail",
+    author: "Cheryl Strayed",
+    tags: ["nonfiction", "memoir", "adventure", "travel"]
+  }
+]// Flatten object keys into an array so that we search the entire object by the input value
+const flattenObjectValuesIntoArray = (arrOfObjs) => {
+  let flattenedObj;
+  const flattenedObjsArr = [];
+  for (let obj = 0; obj < arrOfObjs.length; obj++) {
+    const objValues = Object.values(arrOfObjs[obj]);
+    flattenedObj = [...objValues.flat()]
+    flattenedObjsArr.push(flattenedObj)
+  }
+  return flattenedObjsArr;
+};
+
+// Structure filtered books as HTML and return
+const structureBookAsHtml = (book) => {
+  const bookDiv = document.createElement("div");
+  bookDiv.setAttribute('class', 'bookDiv');
+  
+  const bookTitle = document.createElement("h2");
+  bookTitle.innerHTML = book.title;
+  bookTitle.setAttribute('class', 'bookTitle');
+
+  const bookAuthor = document.createElement("h3");
+  bookAuthor.innerHTML = book.author;
+
+  const bookTags = document.createElement("p");
+  bookTags.innerHTML = book.tags.join(", ");
+
+  bookDiv.append(bookTitle, bookAuthor, bookTags);
+  
+  return bookDiv;
+};
+
+const renderBooksToDom = (elements) => {
+  const bookListContainer = document.querySelector("#bookList");
+  bookListContainer.innerHTML = "";
+
+  bookListContainer.append(...elements);
+};
+// Click handler for search button  ##########################################
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#####################
+ const captureSearchValue = (val) => {
+
+  return val
+}; 
+
+// Filter books based on search input and render filtered books to the DOM
+const filterBooks = (search) => {
+  const extract = flattenObjectValuesIntoArray(books)
+  const result = extract.filter((item) => item.includes(search)) 
+  const searchResult = result.map((arg) => arg[0])
+  let newBooks = books.slice()
+  let book = []
+  for(let i = 0; i < newBooks.length;i++){    
+    for(let j = 0; j < searchResult.length; j++){
+      if(books[i].title === searchResult[j]){
+        book.push(newBooks[i])
+      }
+    }
+  }
+    return book
+};
+
+// Empty the book list container, iterate over list of filtered books, return list of books formatted as HTML using the function in `helper.js` 
+const structureBooksAsHtml = (result) => {
+const paintCan = result.map(arg => structureBookAsHtml(arg));
+}
+
+
+// Handler triggered when a user clickers the "Search" button. Chains previously defined functions together to filter books based on the search value, formats the books as HTML and renders them to the DOM
+const searchBtnClickHandler = (data) => {
+  document.body.style.backgroundColor = 'red'
+}
+/* const searchBtn = document.getElementById('search-btn');
+// Attach an event listener to the search button
+searchBtn.addEventListener("click", () => { searchBtnClickHandler(books) }); */
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
