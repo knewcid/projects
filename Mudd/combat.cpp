@@ -1,10 +1,12 @@
 #include <vector>
+#include <thread>        // for std::this_thread::sleep_for
+#include <chrono>       // for std::chrono::milliseconds
 #include <string>
 #include "Entity.h"
 #include "Item.h"
 #include "Combat.h"
-#include <thread>       // for std::chrono::milliseconds
-#include <chrono>       // for std::this_thread::sleep_for
+#include <iostream>
+    
 
 using namespace std;
 
@@ -13,6 +15,8 @@ void CombatManager::executeRound(Entity& attacker, Entity& defender) {
     int damage = attacker.getTotalStr() + (rand() % 5);
     defender.takeDamage(damage);
 
+    this_thread::sleep_for(chrono::milliseconds(1000));         // The delay trigger for time lapse
+
     if(defender.hp <= 0) {
         handleDeath(attacker, defender);
     }
@@ -20,11 +24,15 @@ void CombatManager::executeRound(Entity& attacker, Entity& defender) {
 
 void CombatManager::handleDeath(Entity& winner, Entity& loser) {
     cout << loser.name << " has been defeated!\n" ;
-    // check if the winner is player or someone to loot
-    dropLoot(winner); 
+
+    Player* player = dynamic_cast<Player>(&winner);
+    if(player) {
+        player->gainExperience(50);  // Will need to assign xp dynamic from npc list
+        dropLoot(player);
+    }
 }
 
-void CombatManager::dropLoot(Entity& reciever) {
+void CombatManager::dropLoot(Entity& receiver) {
     int roll = rand() % 100 + 1;
     vector<Item>* selectTier;
     string rarityName;
@@ -43,8 +51,8 @@ void CombatManager::dropLoot(Entity& reciever) {
     if (!selectTier->empty()) {
         int itemIndex = rand() % selectTier->size();
         Item dropped = (*selectTier)[itemIndex];
-        reciever.inventory.push_back(dropped);
-        cout << ">> [LOOT]: " << reciever.name << " found a [" << rarityName 
+        receiver.inventory.push_back(dropped);
+        cout << ">> [LOOT]: " << receiver.name << " found a [" << rarityName 
         << "] " << dropped.name << "!\n" ;
     }
 }

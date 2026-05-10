@@ -2,14 +2,20 @@
 #define COMBAT_H
 
 #include "Entity.h" 
+#include <vector>
+#include "Item.h"
 
 class CombatManager {
     public:
-        static void executeRound(Entity& attacker, Entity& defender);
+        void executeRound(Entity& attacker, Entity& defender);
 
     private: 
-        static void handleDeath(Entity& winner, Entity& loser);
-        static void dropLoot(Entity& winner);
+        void handleDeath(Entity& winner, Entity& loser);
+        void dropLoot(Entity& winner);
+
+        std::vector<Item> commonLootTable;
+        std::vector<Item> rareLootTable;
+        std::vector<Item> epicLootTable;
 };
 
 #endif

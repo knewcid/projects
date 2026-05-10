@@ -1,10 +1,8 @@
-#ifndef Item_H
-#define Item_H
+#ifndef ITEM_H
+#define ITEM_H
 
 #include <string>
 #include <vector>
-
-using namespace std;
 
 enum Rarity { COMMON, RARE, EPIC };
 
@@ -20,8 +18,8 @@ struct Item {
 };
 
 //Declared for mobs to have access
-extern vector<Item> commonLootTable;
-extern vector<Item> rareLootTable;
-extern vector<Item> epicLootTable;
+extern std::vector<Item> commonLootTable;
+extern std::vector<Item> rareLootTable;
+extern std::vector<Item> epicLootTable;
 
-#endifs
+#endif
